@@ -1,6 +1,6 @@
 # RecordApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
+A record database application using angular, mongodb, express and node.js.
 
 ## Development server
 
@@ -23,6 +23,9 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
 
-## Further help
+## Hosting the application
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+After running `ng build`, from the root directory run `npm server.js`, this will 
+start the node.js server hosting both the record application and the REST api
+connecting to the mongodb database. The locate the application on
+`http://localhost:3000`.
