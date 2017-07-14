@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Add record</div>
+    <div class="panel-body">
+      <form class="form-horizontal" (ngSubmit)="add()" #recordForm="ngForm">
+        <div class="form-group">
+          <label for="inputId" class="col-sm-2 control-label">Catalog number:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" required name="inputId" [(ngModel)]="record.id" #inputId="ngModel">
+            <div [hidden]="inputId.valid"
+                 class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              Catalog number is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputTitle" class="col-sm-2 control-label">Title:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" required name="inputTitle" [(ngModel)]="record.title" #inputTitle="ngModel">
+            <div [hidden]="inputTitle.valid"
+                 class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              Title is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputArtist" class="col-sm-2 control-label">Artist:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" required name="inputArtist" [(ngModel)]="record.artist" #inputArtist="ngModel">
+            <div [hidden]="inputArtist.valid"
+                 class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              Artist is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputYear" class="col-sm-2 control-label">Release year:</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" required name="inputYear" [(ngModel)]="record.year" #inputYear="ngModel">
+            <div [hidden]="inputYear.valid"
+                 class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              Year is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputLabel" class="col-sm-2 control-label">Label:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" required name="inputLabel" [(ngModel)]="record.label" #inputLabel="ngModel">
+            <div [hidden]="inputLabel.valid"
+                 class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              Label is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary" [disabled]="!recordForm.form.valid">Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

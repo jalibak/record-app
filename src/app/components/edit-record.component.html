@@ -1,0 +1,67 @@
+<div class="container "*ngIf="record">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Update record</div>
+    <div class="panel-body">
+      <form class="form-horizontal" (ngSubmit)="update()" #recordForm="ngForm">
+        <div class="form-group">
+          <label for="id" class="col-sm-2 control-label">Catalog number:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="id" [(ngModel)]="record.id" id="id" disabled>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="title" class="col-sm-2 control-label">Title:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" required name="title" [(ngModel)]="record.title" id="title">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="artist" class="col-sm-2 control-label">Artist:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" required name="artist" [(ngModel)]="record.artist" id="artist">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="year" class="col-sm-2 control-label">Release year:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" required name="year" [(ngModel)]="record.year" id="year">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="label" class="col-sm-2 control-label">Label:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" required name="label" [(ngModel)]="record.label" id="label">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary" [disabled]="!recordForm.form.valid">Update</button>
+            <!--<button class="btn btn-primary" (click)="goBack()">Back</button>-->
+          </div>
+        </div>
+        <div [hidden]="!updated" class="alert alert-success" role="alert">
+          Record updated
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">Update track list</div>
+    <ul class="list-group" *ngFor="let track of record.trackList">
+      <li class="list-group-item">{{track.track}} - {{track.trackTitle}}</li>
+    </ul>
+    <div class="panel-body">
+      <form class="form-inline" (ngSubmit)="addTrack()" #trackForm="ngForm">
+        <div class="form-group">
+          <label for="track">Track</label>
+          <input type="text" required class="form-control" id="track" name="track" [(ngModel)]="newTrack.track">
+        </div>
+        <div class="form-group">
+          <label for="track-title">Title</label>
+          <input type="text" required class="form-control" id="track-title" name="track-title" [(ngModel)]="newTrack.trackTitle">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!trackForm.form.valid"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+      </form>
+    </div>
+  </div>
+</div>

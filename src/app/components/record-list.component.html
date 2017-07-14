@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="starter-template">
+    <h1>{{title}}</h1>
+    <p>This application is a record database, which contains all my vinyl dance records.</p>
+    <div class="panel panel-primary">
+      <div class="panel-heading">List of records in database</div>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr><th>Catalog Number:</th><th>Artist:</th><th>Title:</th><th></th></tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of records">
+            <td>{{record.id}}</td>
+            <td>{{record.artist}}</td>
+            <td>{{record.title}}</td>
+            <td>
+              <button class="btn btn-info" (click)="gotoRecord(record.id)">View Details</button>
+              <button class="btn btn-primary" (click)="editRecord(record.id)">Edit</button>
+              <button class="btn btn-danger" (click)="deleteRecord(record.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

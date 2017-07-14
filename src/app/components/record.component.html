@@ -1,0 +1,21 @@
+<div class="container "*ngIf="record">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Record details</div>
+    <ul class="list-group">
+      <li class="list-group-item">Catalog number: {{record.id}}</li>
+      <li class="list-group-item">Title: {{record.title}}</li>
+      <li class="list-group-item">Artist: {{record.artist}}</li>
+      <li class="list-group-item">Release year: {{record.year}}</li>
+      <li class="list-group-item">Label: {{record.label}}</li>
+    </ul>
+    <div class="panel-body">
+      <button class="btn btn-primary" (click)="goBack()">Back</button>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">Track list</div>
+    <ul class="list-group" *ngFor="let track of record.trackList">
+      <li class="list-group-item">{{track.track}} - {{track.trackTitle}}</li>
+    </ul>
+  </div>
+</div>
