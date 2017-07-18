@@ -14,6 +14,7 @@ import { RecordComponent } from './components/record.component';
 import { RecordListComponent } from './components/record-list.component';
 import { AddRecordComponent } from './components/add-record.component';
 import { EditRecordComponent } from './components/edit-record.component';
+import { PlaylistsComponent } from './components/playlists.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EditRecordComponent } from './components/edit-record.component';
     RecordComponent,
     RecordListComponent,
     AddRecordComponent,
-    EditRecordComponent
+    EditRecordComponent,
+    PlaylistsComponent
   ],
   imports: [
     BrowserModule,

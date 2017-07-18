@@ -41,4 +41,10 @@ export class RecordListComponent implements OnInit {
     this.records.splice(this.records.findIndex(record => record.id === id), 1);
     this.recordService.delete(id);
   }
+
+  sortByArtist(): void {
+    this.records.sort(function(a, b) {
+      return a.artist.localeCompare(b.artist);
+    })
+  }
 }
