@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-var db = mongojs('mongodb://localhost:8080/recordsdb', ['records']);
+var db = mongojs('mongodb://localhost:27017/recordsdb', ['records']);
 
 router.get('/', (req, res) => {
   res.json({message: 'api works'});
@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
 // Get all records
 router.get('/records', function(req, res, next) {
-  db.records.find(function(err, records){
+  db.records.find().sort({id: 1}, function(err, records){
     if(err){
       res.send(err);
     }
