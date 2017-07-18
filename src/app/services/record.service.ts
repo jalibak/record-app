@@ -16,7 +16,7 @@ export class RecordService {
   getRecords(): Promise<Record[]> {
     return this.http.get(this.recordsUrl)
         .toPromise()
-        .then(response => response.json().data as Record[])
+        .then(response => response.json() as Record[])
         .catch(this.handleError);
   }
 
@@ -24,14 +24,14 @@ export class RecordService {
     const url = `${this.recordsUrl}/${id}`;
     return this.http.get(url)
         .toPromise()
-        .then(response => response.json().data as Record)
+        .then(response => response.json() as Record)
         .catch(this.handleError);
   }
 
   create(record: Record): Promise<Record> {
     return this.http.post(this.recordsUrl, record, {headers: this.headers})
         .toPromise()
-        .then(res => res.json().data as Record)
+        .then(res => res.json() as Record)
         .catch(this.handleError);
   }
 

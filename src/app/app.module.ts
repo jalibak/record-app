@@ -29,7 +29,7 @@ import { PlaylistsComponent } from './components/playlists.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+  //  InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
   providers: [ RecordService ],

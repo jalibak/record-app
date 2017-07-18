@@ -11,27 +11,30 @@ router.get('/', (req, res) => {
 router.get('/records', function(req, res, next) {
   db.records.find().sort({id: 1}, function(err, records){
     if(err){
+      console.log(err);
       res.send(err);
     }
     res.json(records);
   });
 });
 
-// Get a record
+// Get a record by id
 router.get('/records/:id', function(req, res, next) {
   db.records.findOne({id: req.params.id}, function(err, record){
     if(err){
+      console.log(err);
       res.send(err);
     }
     res.json(record);
   });
 });
 
-// Create record
+// Create a new record
 router.post('/records', function(req, res, next){
   var record = req.body;
   db.records.save(record, function(err, record){
     if(err){
+      console.log(err);
       res.send(err);
     }
     res.json(record);
@@ -42,6 +45,7 @@ router.post('/records', function(req, res, next){
 router.delete('/records/:id', function(req, res, next) {
   db.records.remove({id: req.params.id}, function(err, record){
     if(err){
+      console.log(err);
       res.send(err);
     }
     res.json(record);
@@ -51,8 +55,12 @@ router.delete('/records/:id', function(req, res, next) {
 // Update a record
 router.put('/records/:id', function(req, res, next) {
   var record = req.body;
+  // Remove the MongoDb _id from the document, causes problems due to mismatch.
+  // String vs object
+  delete record._id;
   db.records.update({id: req.params.id}, record, {},function(err, record){
     if(err){
+      console.log(err);
       res.send(err);
     }
     res.json(record);
