@@ -42,9 +42,19 @@ export class RecordListComponent implements OnInit {
     this.recordService.delete(id);
   }
 
-  sortByArtist(): void {
-    this.records.sort(function(a, b) {
-      return a.artist.localeCompare(b.artist);
-    })
+  sortRecords(column: number): void {
+    if (column === 0) {
+      this.records.sort(function(a, b) {
+        return a.id.localeCompare(b.id);
+      })
+    } else if (column === 1) {
+      this.records.sort(function(a, b) {
+        return a.artist.localeCompare(b.artist);
+      })
+    } else if (column === 2) {
+      this.records.sort(function(a, b) {
+        return a.title.localeCompare(b.title);
+      })
+    }
   }
 }
