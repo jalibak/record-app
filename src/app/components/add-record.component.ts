@@ -6,6 +6,7 @@ import { RecordService } from '../services/record.service';
 
 import { Record } from '../models/record';
 import { Track } from '../models/track';
+import { Genre } from '../models/genre';
 
 @Component({
   selector: 'app-add-record',
@@ -14,6 +15,7 @@ import { Track } from '../models/track';
 })
 export class AddRecordComponent implements OnInit {
   record: Record;
+  genres: Genre[];
 
   constructor(private recordService: RecordService,
     private router: Router) { }
@@ -21,6 +23,7 @@ export class AddRecordComponent implements OnInit {
   ngOnInit() {
     this.record = new Record();
     this.record.trackList = new Array<Track>();
+    this.getGenres();
   }
 
   add(): void {
@@ -29,5 +32,9 @@ export class AddRecordComponent implements OnInit {
     this.recordService.create(this.record);
 
     this.router.navigate(['/records']);
+  }
+
+  getGenres(): void {
+    this.recordService.getGenres().then(genres => this.genres = genres);
   }
 }

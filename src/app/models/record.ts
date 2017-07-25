@@ -6,5 +6,6 @@ export class Record {
   artist: string;
   year: number;
   label: string;
+  genre: string;
   trackList: Track[];
 }

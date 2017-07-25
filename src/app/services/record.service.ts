@@ -4,11 +4,13 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Record } from '../models/record';
+import { Genre } from '../models/genre';
 
 @Injectable()
 export class RecordService {
 
   private recordsUrl = 'api/records';
+  private genreUrl = 'api/genres';
   private headers = new Headers({'Content-Type': 'application/json'})
 
   constructor(private http: Http) { }
@@ -50,6 +52,13 @@ export class RecordService {
         .toPromise()
         .then(() => null)
         .catch(this.handleError);
+  }
+
+  getGenres(): Promise<Genre[]> {
+    return this.http.get(this.genreUrl)
+      .toPromise()
+      .then(response => response.json() as Genre[])
+      .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {

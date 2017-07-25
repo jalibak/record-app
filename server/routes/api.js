@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-var db = mongojs('mongodb://localhost:27017/recordsdb', ['records']);
+var db = mongojs('mongodb://localhost:27017/recordsdb', ['records','genres']);
 
 router.get('/', (req, res) => {
   res.json({message: 'api works'});
@@ -64,6 +64,17 @@ router.put('/records/:id', function(req, res, next) {
       res.send(err);
     }
     res.json(record);
+  });
+});
+
+// Get genres
+router.get('/genres', function(req, res, next) {
+  db.genres.find().sort({genre: 1}, function(err, genre) {
+    if(err){
+      console.log(err);
+      res.send(err);
+    }
+    res.json(genre);
   });
 });
 

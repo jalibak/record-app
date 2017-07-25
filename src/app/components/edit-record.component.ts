@@ -6,6 +6,7 @@ import { RecordService } from '../services/record.service';
 
 import { Record } from '../models/record';
 import { Track } from '../models/track';
+import { Genre } from '../models/genre';
 
 @Component({
   selector: 'app-edit-record',
@@ -16,6 +17,7 @@ export class EditRecordComponent implements OnInit {
   record: Record;
   newTrack = new Track();
   updated = false;
+  genres: Genre[];
 
   constructor(private recordService: RecordService,
     private route: ActivatedRoute,
@@ -25,6 +27,7 @@ export class EditRecordComponent implements OnInit {
     this.route.paramMap.switchMap((params: ParamMap) =>
       this.recordService.getRecord(params.get('id')))
       .subscribe(record => this.record = record);
+    this.getGenres();
   }
 
   update() {
@@ -39,6 +42,10 @@ export class EditRecordComponent implements OnInit {
   addTrack() {
     this.record.trackList.push(this.newTrack);
     this.newTrack = new Track();
+  }
+
+  getGenres(): void {
+    this.recordService.getGenres().then(genres => this.genres = genres);
   }
 
 }
