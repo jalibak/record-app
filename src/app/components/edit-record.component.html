@@ -4,9 +4,9 @@
     <div class="panel-body">
       <form class="form-horizontal" (ngSubmit)="update()" #recordForm="ngForm">
         <div class="form-group">
-          <label for="id" class="col-sm-2 control-label">Catalog number:</label>
+          <label for="catnum" class="col-sm-2 control-label">Catalog number:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" name="id" [(ngModel)]="record.id" id="id" disabled>
+            <input type="text" class="form-control" name="catnum" [(ngModel)]="record.catnum" id="catnum" disabled>
           </div>
         </div>
         <div class="form-group">

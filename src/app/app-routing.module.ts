@@ -10,9 +10,9 @@ import { PlaylistsComponent } from './components/playlists.component';
 const routes: Routes = [
   { path: '', redirectTo: '/records', pathMatch: 'full' },
   { path: 'records', component: RecordListComponent },
-  { path: 'record/:id', component: RecordComponent },
+  { path: 'record/:catnum', component: RecordComponent },
   { path: 'add', component: AddRecordComponent },
-  { path: 'edit/:id', component: EditRecordComponent },
+  { path: 'edit/:catnum', component: EditRecordComponent },
   { path: 'playlists', component: PlaylistsComponent }
 ];
 

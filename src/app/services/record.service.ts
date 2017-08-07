@@ -22,8 +22,8 @@ export class RecordService {
         .catch(this.handleError);
   }
 
-  getRecord(id: string): Promise<Record> {
-    const url = `${this.recordsUrl}/${id}`;
+  getRecord(catnum: string): Promise<Record> {
+    const url = `${this.recordsUrl}/${catnum}`;
     return this.http.get(url)
         .toPromise()
         .then(response => response.json() as Record)
@@ -38,7 +38,7 @@ export class RecordService {
   }
 
   update(record: Record): Promise<Record> {
-    const url = `${this.recordsUrl}/${record.id}`;
+    const url = `${this.recordsUrl}/${record.catnum}`;
     return this.http
       .put(url, record, {headers: this.headers})
       .toPromise()
@@ -46,8 +46,8 @@ export class RecordService {
       .catch(this.handleError);
   }
 
-  delete(id: string): Promise<void> {
-    const url = `${this.recordsUrl}/${id}`;
+  delete(catnum: string): Promise<void> {
+    const url = `${this.recordsUrl}/${catnum}`;
     return this.http.delete(url, {headers: this.headers})
         .toPromise()
         .then(() => null)

@@ -1,7 +1,7 @@
 import { Track } from './track';
 
 export class Record {
-  id: string;
+  catnum: string;
   title: string;
   artist: string;
   year: number;

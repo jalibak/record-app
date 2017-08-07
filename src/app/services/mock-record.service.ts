@@ -12,8 +12,8 @@ export class MockRecordService {
     return Promise.resolve(RECORDS);
   }
 
-  getRecord(id: string): Promise<Record> {
+  getRecord(catnum: string): Promise<Record> {
     return this.getRecords()
-      .then(records => records.find(record => record.id === id));
+      .then(records => records.find(record => record.catnum === catnum));
   }
 }

@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
 // Get all records
 router.get('/records', function(req, res, next) {
-  db.records.find().sort({id: 1}, function(err, records){
+  db.records.find().sort({catnum: 1}, function(err, records){
     if(err){
       console.log(err);
       res.send(err);
@@ -19,8 +19,8 @@ router.get('/records', function(req, res, next) {
 });
 
 // Get a record by id
-router.get('/records/:id', function(req, res, next) {
-  db.records.findOne({id: req.params.id}, function(err, record){
+router.get('/records/:catnum', function(req, res, next) {
+  db.records.findOne({catnum: req.params.catnum}, function(err, record){
     if(err){
       console.log(err);
       res.send(err);
@@ -42,8 +42,8 @@ router.post('/records', function(req, res, next){
 });
 
 // Delete a record
-router.delete('/records/:id', function(req, res, next) {
-  db.records.remove({id: req.params.id}, function(err, record){
+router.delete('/records/:catnum', function(req, res, next) {
+  db.records.remove({catnum: req.params.catnum}, function(err, record){
     if(err){
       console.log(err);
       res.send(err);
@@ -53,12 +53,12 @@ router.delete('/records/:id', function(req, res, next) {
 });
 
 // Update a record
-router.put('/records/:id', function(req, res, next) {
+router.put('/records/:catnum', function(req, res, next) {
   var record = req.body;
   // Remove the MongoDb _id from the document, causes problems due to mismatch.
   // String vs object
   delete record._id;
-  db.records.update({id: req.params.id}, record, {},function(err, record){
+  db.records.update({catnum: req.params.catnum}, record, {},function(err, record){
     if(err){
       console.log(err);
       res.send(err);

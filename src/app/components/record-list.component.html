@@ -6,22 +6,40 @@
       <div class="panel-heading">List of records in database</div>
       <table class="table table-striped table-bordered">
         <thead>
-          <tr><th (click)="sortRecords(0)">Catalog Number:</th><th (click)="sortRecords(1)">Artist:</th><th (click)="sortRecords(2)">Title:</th><th></th></tr>
+          <tr><th (click)="sortRecords(0)">Catalog Number:</th><th (click)="sortRecords(1)">Artist:</th><th (click)="sortRecords(2)">Title:</th><th (click)="sortRecords(3)">Genre</th><th></th></tr>
         </thead>
         <tbody>
           <tr *ngFor="let record of records">
-            <td>{{record.id}}</td>
+            <td>{{record.catnum}}</td>
             <td>{{record.artist}}</td>
             <td>{{record.title}}</td>
+            <td>{{record.genre}}</td>
             <td>
-              <button class="btn btn-info" (click)="gotoRecord(record.id)">View Details</button>
-              <button class="btn btn-primary" (click)="editRecord(record.id)">Edit</button>
-              <button class="btn btn-danger" (click)="deleteRecord(record.id)">Delete</button>
+              <button class="btn btn-info" (click)="gotoRecord(record.catnum)">View Details</button>
+              <button class="btn btn-primary" (click)="editRecord(record.catnum)">Edit</button>
+              <button class="btn btn-danger" (click)="deleteRecord(record.catnum)">Delete</button>
             </td>
           </tr>
         </tbody>
       </table>
-      <div class="panel-body"></div>
+      <div class="panel-body">
+        <div *ngIf="records">{{records.length}} records in database.</div>
+      </div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">Filter records</div>
+      <div class="panel-body">
+        <form class="form-inline" (ngSubmit)="filterRecords(genre.value)">
+          <div class="form-group">
+            <label>Genre</label>
+            <select class="form-control" #genre>
+              <option *ngFor="let genre of genres" [value]="genre.genre">{{genre.genre}}</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Filter</button>
+          <button (click)="getRecords()" class="btn btn-primary">Clear filter</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

@@ -25,7 +25,7 @@ export class EditRecordComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.switchMap((params: ParamMap) =>
-      this.recordService.getRecord(params.get('id')))
+      this.recordService.getRecord(params.get('catnum')))
       .subscribe(record => this.record = record);
     this.getGenres();
   }

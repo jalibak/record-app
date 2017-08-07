@@ -4,62 +4,62 @@
     <div class="panel-body">
       <form class="form-horizontal" (ngSubmit)="add()" #recordForm="ngForm">
         <div class="form-group">
-          <label for="inputId" class="col-sm-2 control-label">Catalog number:</label>
+          <label for="catnum" class="col-sm-2 control-label">Catalog number:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" required name="inputId" [(ngModel)]="record.id" #inputId="ngModel">
-            <div [hidden]="inputId.valid"
+            <input type="text" class="form-control" required name="catnum" [(ngModel)]="record.catnum" #catnum="ngModel">
+            <div [hidden]="catnum.valid"
                  class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
               Catalog number is required
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="inputTitle" class="col-sm-2 control-label">Title:</label>
+          <label for="title" class="col-sm-2 control-label">Title:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" required name="inputTitle" [(ngModel)]="record.title" #inputTitle="ngModel">
-            <div [hidden]="inputTitle.valid"
+            <input type="text" class="form-control" required name="title" [(ngModel)]="record.title" #title="ngModel">
+            <div [hidden]="title.valid"
                  class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
               Title is required
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="inputArtist" class="col-sm-2 control-label">Artist:</label>
+          <label for="artist" class="col-sm-2 control-label">Artist:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" required name="inputArtist" [(ngModel)]="record.artist" #inputArtist="ngModel">
-            <div [hidden]="inputArtist.valid"
+            <input type="text" class="form-control" required name="artist" [(ngModel)]="record.artist" #artist="ngModel">
+            <div [hidden]="artist.valid"
                  class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
               Artist is required
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="inputYear" class="col-sm-2 control-label">Release year:</label>
+          <label for="year" class="col-sm-2 control-label">Release year:</label>
           <div class="col-sm-10">
-            <input type="number" class="form-control" required name="inputYear" [(ngModel)]="record.year" #inputYear="ngModel">
-            <div [hidden]="inputYear.valid"
+            <input type="number" class="form-control" required name="year" [(ngModel)]="record.year" #year="ngModel">
+            <div [hidden]="year.valid"
                  class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
               Year is required
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="inputLabel" class="col-sm-2 control-label">Label:</label>
+          <label for="label" class="col-sm-2 control-label">Label:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" required name="inputLabel" [(ngModel)]="record.label" #inputLabel="ngModel">
-            <div [hidden]="inputLabel.valid"
+            <input type="text" class="form-control" required name="label" [(ngModel)]="record.label" #label="ngModel">
+            <div [hidden]="label.valid"
                  class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
               Label is required
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="inputGenre" class="col-sm-2 control-label">Genre:</label>
+          <label for="genre" class="col-sm-2 control-label">Genre:</label>
           <div class="col-sm-10">
-            <select name="inputGenre" class="form-control" required [(ngModel)]="record.genre" #inputGenre="ngModel">
+            <select name="genre" class="form-control" required [(ngModel)]="record.genre" #genre="ngModel">
               <option *ngFor="let genre of genres" [value]="genre.genre">{{genre.genre}}</option>
             </select>
-            <div [hidden]="inputGenre.valid"
+            <div [hidden]="genre.valid"
                  class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
               Genre is required
             </div>

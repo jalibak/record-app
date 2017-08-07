@@ -21,7 +21,7 @@ export class RecordComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.switchMap((params: ParamMap) =>
-      this.recordService.getRecord(params.get('id')))
+      this.recordService.getRecord(params.get('catnum')))
       .subscribe(record => this.record = record);
   }
 
